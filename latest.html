@@ -1,0 +1,36 @@
+<script>
+
+    let url = document.URL;
+    let para = url.split('?')[1];
+    let user = para.split('/')[0];
+    let repo = para.split('/')[1];
+    let assetName = para.split('/')[2];
+    let link = "error";
+    try {
+        fetch(`https://api.github.com/repos/${user}/${repo}/releases/latest`).then(res => res.json(), reject => {
+            throw reject;
+        }).then(result => {
+            let assets = result.assets;
+            if (assets.length > 0) {
+                for (let index = 0; index < assets.length; index++) {
+                    const element = assets[index];
+                    if (element.name.indexOf(assetName) > 0 &&
+                        (element.name.endsWith('.exe') ||
+                            element.name.endsWith('.zip') ||
+                            element.name.endsWith('.dmg'))) {
+                        link = element.browser_download_url;
+                    }
+                }
+                document.write(link);
+            } else {
+                throw Error('assets is null');
+            }
+        }).catch(reject => { throw reject });
+
+    } catch (error) {
+        window.location = `https://github.com/${user}/${repo}/releases`;
+    }
+
+
+
+</script>
