@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
     let assetName = para.split('/')[2];
     let link = "error";
     try {
-        fetch(`https://api.github.com/repos/${user}/${repo}/releases/latest`).then(res => res.json(), reject => {
+        fetch("https://api.github.com/repos/" + user + "/" + repo + "/releases/latest").then(res => res.json(), reject => {
             throw reject;
         }).then(result => {
             let assets = result.assets;
@@ -35,9 +36,11 @@
         }).catch(reject => { throw reject });
 
     } catch (error) {
-        window.location.href = `https://github.com/${user}/${repo}/releases`;
+        window.location.href = "https://github.com/" + user + "/" + repo + "/releases";
     }
 </script>
+
 <body>
 </body>
+
 </html>
