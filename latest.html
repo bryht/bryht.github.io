@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get the latest download version from GitHub</title>
+</head>
 <script>
-
     let url = document.URL;
     let para = url.split('?')[1];
     let user = para.split('/')[0];
@@ -21,16 +28,16 @@
                         link = element.browser_download_url;
                     }
                 }
-                document.write(link);
+                window.location.href = link;
             } else {
                 throw Error('assets is null');
             }
         }).catch(reject => { throw reject });
 
     } catch (error) {
-        window.location = `https://github.com/${user}/${repo}/releases`;
+        window.location.href = `https://github.com/${user}/${repo}/releases`;
     }
-
-
-
 </script>
+<body>
+</body>
+</html>
