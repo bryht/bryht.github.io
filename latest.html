@@ -13,8 +13,16 @@
     let user = para.split('/')[0];
     let repo = para.split('/')[1];
     let assetName = para.split('/')[2];
-    let link = "error";
+    let link = "https://github.com/" + user + "/" + repo + "/releases";
+    var isIE = function () {
+        var b = document.createElement('b')
+        b.innerHTML = '<!--[if IE]><i></i><![endif]-->'
+        return b.getElementsByTagName('i').length === 1
+    }
     try {
+        if (isIE()) {
+           window.location.href=link;
+        }
         fetch("https://api.github.com/repos/" + user + "/" + repo + "/releases/latest").then(res => res.json(), reject => {
             throw reject;
         }).then(result => {
@@ -30,6 +38,7 @@
                     }
                 }
                 window.location.href = link;
+                setTimeout('', 2000);
                 window.history.back();
             } else {
                 throw Error('assets is null');
@@ -37,7 +46,7 @@
         }).catch(reject => { throw reject });
 
     } catch (error) {
-        window.location.href = "https://github.com/" + user + "/" + repo + "/releases";
+        window.location.href = link;
     }
 </script>
 
