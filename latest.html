@@ -21,7 +21,7 @@
     }
     try {
         if (isIE()) {
-           window.location.href=link;
+            window.location.href = link;
         }
         fetch("https://api.github.com/repos/" + user + "/" + repo + "/releases/latest").then(res => res.json(), reject => {
             throw reject;
@@ -37,9 +37,8 @@
                         link = element.browser_download_url;
                     }
                 }
+                window.onload = function () { window.history.back(); }
                 window.location.href = link;
-                setTimeout('', 2000);
-                window.history.back();
             } else {
                 throw Error('assets is null');
             }
