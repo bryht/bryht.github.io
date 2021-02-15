@@ -4,3 +4,5 @@
 * config rss source `gatsby-source-rss-feed`
 ## config avatar
 * `src\components\pic.jpg`
+## deploy
+* `npm run deploy`
