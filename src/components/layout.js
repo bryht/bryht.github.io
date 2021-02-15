@@ -27,19 +27,25 @@ const DefaultLayout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-      <div className="wrapper">
-        <Helmet>
-          <title>{data.site.siteMetadata.title}</title>
-          <link
-            href="https://fonts.googleapis.com/css?family=Lato|PT+Serif&display=swap"
-            rel="stylesheet"
-          />
-        </Helmet>
-        <Sidebar siteMetadata={data.site.siteMetadata} />
-        {children}
-      </div>
-    )}
+    render={data => {
+      if (!(data && data.site && data.site.siteMetadata)) {
+        return "";
+      }
+      const { title } = data.site.siteMetadata;
+      return (
+        <div className="wrapper">
+          <Helmet>
+            <title>{title}</title>
+            <link
+              href="https://fonts.googleapis.com/css?family=Lato|PT+Serif&display=swap"
+              rel="stylesheet"
+            />
+          </Helmet>
+          <Sidebar siteMetadata={data.site.siteMetadata} />
+          {children}
+        </div>
+      )
+    }}
   />
 )
 
