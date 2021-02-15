@@ -13,6 +13,7 @@ const DefaultLayout = ({ children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
+            title
             author
             description
             social {
@@ -29,6 +30,7 @@ const DefaultLayout = ({ children }) => (
     render={data => (
       <div className="wrapper">
         <Helmet>
+          <title>{data.site.siteMetadata.title}</title>
           <link
             href="https://fonts.googleapis.com/css?family=Lato|PT+Serif&display=swap"
             rel="stylesheet"
