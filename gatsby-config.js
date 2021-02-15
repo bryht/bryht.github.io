@@ -12,7 +12,6 @@ module.exports = {
       email: `bryht@live.com`,
     },
   },
-  pathPrefix: "/bryht.github.io",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
