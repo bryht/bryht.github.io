@@ -15,17 +15,6 @@ class BlogPost extends React.Component {
         <div className="clearfix post-content-box">
           <article className="article-page">
             <div className="page-content">
-              {post.frontmatter.img && (
-                <div className="page-cover-image">
-                  <figure>
-                    <Img
-                      className="page-image"
-                      key={post.frontmatter.img.childImageSharp.fluid.src}
-                      fluid={post.frontmatter.img.childImageSharp.fluid}
-                    />
-                  </figure>
-                </div>
-              )}
               <div className="wrap-content">
                 <header className="header-page">
                   <h1 className="page-title">{post.frontmatter.title}</h1>

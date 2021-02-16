@@ -24,7 +24,7 @@ class BlogList extends React.Component {
         id: node.id,
         link: node.link,
         title: node.title,
-        description: node.content.encodedSnippet.substring(0,100),
+        description: node.content.encodedSnippet.substring(0, 100),
         date: node.pubDate,
         img: null,
         type: node.internal.type,
@@ -60,7 +60,18 @@ class BlogList extends React.Component {
                       {element.title}
                     </Link>
                   </h2>
-                  <p>{element.description}</p>
+                  <p>
+                    <Link
+                      target="_blank"
+                      style={{
+                        textDecoration: 'none',
+                        color: '#000000',
+                      }}
+                      to={element.link}
+                    >
+                      {element.description}
+                    </Link>
+                  </p>
                   <span className="post-date">
                     {new Date(element.date).toLocaleString()}
                   </span>
