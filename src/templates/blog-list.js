@@ -24,7 +24,7 @@ class BlogList extends React.Component {
         id: node.id,
         link: node.link,
         title: node.title,
-        description: node.content.encodedSnippet.substring(0, 100),
+        description: node.content.encodedSnippet.substring(0, 100)+"...",
         date: node.pubDate,
         img: null,
         type: node.internal.type,
