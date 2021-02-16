@@ -9,7 +9,7 @@
 * change domain in `CNAME` file
 
 ## write article
-with structure like this
+add .md file under `content/blog/my-article-1` with structure like this
 ```
 ---
 title: 'Welcome!'
