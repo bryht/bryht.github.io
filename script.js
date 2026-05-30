@@ -1,5 +1,5 @@
 /* ============================================================
-   Bryht Tech — interactions
+   BRYHT — interactions
    - warp starfield (canvas)
    - scroll reveals
    - animated stat counters
@@ -14,7 +14,7 @@
 
   let w, h, cx, cy, stars;
   const STAR_COUNT = 520;
-  let speed = 0.35;          // base warp speed
+  let speed = 0.35; // base warp speed
   let targetSpeed = 0.35;
   const mouse = { x: 0, y: 0 };
 
@@ -99,7 +99,7 @@
       clearTimeout(warpTimer);
       warpTimer = setTimeout(() => (targetSpeed = 0.35), 220);
     },
-    { passive: true }
+    { passive: true },
   );
 
   init();
@@ -132,7 +132,7 @@
         }
       });
     },
-    { threshold: 0.18 }
+    { threshold: 0.18 },
   );
   items.forEach((el) => io.observe(el));
 })();
@@ -167,7 +167,7 @@
         io.unobserve(el);
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.6 },
   );
   nums.forEach((el) => io.observe(el));
 })();
